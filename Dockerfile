@@ -1,4 +1,10 @@
 # syntax=docker/dockerfile:1
+
+FROM node:20-slim as puppeteer-stage
+WORKDIR /code
+COPY package*.json ./
+RUN npm install
+
 FROM python:3.10 as python-base
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
@@ -44,5 +50,3 @@ USER appuser
 
 WORKDIR $CODE_PATH
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "main.wsgi", "--reload"]
-
-

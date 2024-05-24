@@ -1,0 +1,14 @@
+{
+  "name": "django-puppeteer",
+  "version": "0.1.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Avinash Gowda <avinashgowda.1994@gmail.com>",
+  "license": "",
+  "description": "",
+  "dependencies": {
+    "puppeteer": "^22.9.0"
+  }
+}

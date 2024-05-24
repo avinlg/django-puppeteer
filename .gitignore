@@ -3,3 +3,4 @@
 .vscode
 *.sqlite
 data/*
+node_modules/*

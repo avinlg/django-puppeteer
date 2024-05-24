@@ -4,3 +4,4 @@
 *.sqlite
 data/*
 node_modules/*
+test-out/*

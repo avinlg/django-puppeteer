@@ -16,12 +16,24 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
+from django.templatetags.static import static
+import subprocess
+import os
 
 def test(request):
     return JsonResponse({"status": True, "msg": "test 2"})
 
+def testPuppeteer(request):
+    testImage = 'test-out/test.png'
+    if os.path.exists(testImage):
+        os.remove(testImage)
+    p = subprocess.Popen(['node', 'node-build/testPuppeteer.js'], stdout=subprocess.PIPE)
+    out = p.stdout.read()
+    return HttpResponse(f'<img src={(static(testImage))}>')
+
 urlpatterns = [
     path('', test),
+    path('test/', testPuppeteer),
     path('admin/', admin.site.urls),
 ]

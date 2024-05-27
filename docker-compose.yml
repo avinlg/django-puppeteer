@@ -16,6 +16,8 @@ services:
       dockerfile: ./Dockerfile
     volumes:
       - .:/code
+      - ./data/build/node_modules:/code/node_modules
+      - ./data/build/node-build:/code/node-build
     ports:
       - 8000:8000
     environment:
